@@ -3,11 +3,14 @@ package com.training.shop.controllers;
 import com.training.shop.entity.Product;
 import com.training.shop.service.ProductService;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+@CrossOrigin("http://localhost:3001/*")
 @RestController
 @RequestMapping("/catalog")
 public class CatalogController {
@@ -22,6 +25,7 @@ public class CatalogController {
     public Iterable<Product> catalogMain(Model model) {
         System.out.println(productService.findAll());
         return  productService.findAll();
+//        List<Product> products = (List<Product>) productService.findAll();
 //        model.addAttribute("products", products);
 //        return "catalog";
     }
